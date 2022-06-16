@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<br>
+<div class="">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'reserva/img/cla_golf/2.jpg' %}" class="d-block w-80" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'reserva/img/cla_golf/1.jpg' %}" class="d-block w-80" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'reserva/img/cla_golf/3.jpg' %}" class="d-block w-80" alt="...">
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="info col-lg-8 offset-2">
+        <div class="card">
+            <div class="card-body">
+
+                <h6>La Federación Chilena de Golf, en colaboración con Sumo Golf, te invita a descubrir lo atrapante y
+                    divertido que puede ser jugar al golf mediante el Programa de Golf para Iniciados:</h6>
+
+            </div>
+        </div>
+        <br>
+
+        <div class="d-grid gap-3">
+            <h5>OBJETIVOS</h5>
+            <div class="p-2 bg-light border">El programa iniciados tiene por objetivo difundir el golf a través de
+                clases prácticas de inducción,
+                pasando por todas las estaciones de juego y una salida a cancha.</div>
+            <h5>GENERALIDADES</h5>
+            <div class="p-2 bg-light border">Cada alumno accede a cuatro clases técnicas de 60 minutos cada una, más una
+                clase final de 90 minutos en cancha.</div>
+            <h5>PROGRAMA</h5>
+            <div class="p-2 bg-light border">
+                <ul>
+                    <li> <b>Clase 1:</b> Fundamentos del Juego, Putt y Approach I (60 min)</li>
+                    <li> <b>Clase 2:</b> Fundamentos del equipamiento, Approach II y Full Swing (palos cortos)(60 min)
+                    </li>
+                    <li> <b>Clase 3:</b> Putt (revisión) y Full Swing (palos cortos y medios) (60 Min)</li>
+                    <li> <b>Clase 4:</b>Parte A: Approach (revisión) y Full Swing (palos medios y maderas)(60 min) </li>
+                </ul>
+            </div>
+            <h5>ARANCELES Y CONDICIONES</h5>
+            <div class="p-2 bg-light border">
+                <ul>
+                    <li> <b>Valor curso:</b> $30.000</li>
+                    <li> <b>Condición:</b> Las condiciones de participación e inscripción están sujetas a disponibilidad
+                        o
+                        modificaciones según la empres Sumo Golg disponga.
+                    </li>
+                </ul>
+            </div>
+            <h5>CONTACTO Y CONSULTAS</h5>
+            <div class="p-2 bg-light border">
+                <ul>
+                    <li> <b>Teléfono:</b> +569 65531628</li>
+                    <li> <b>Correo:</b>
+                        <E-mail> sumo@golf.cl</E-mail>
+                    </li>
+                </ul>
+            </div>
+            <h5>INSCRIPCIÓN</h5>
+            <div class="p-2 bg-light border">Completa el formulario de inscripción a continuación.</div>
+        </div>
+        <div class="button">
+            <div class="float-end mt-3">
+                <a href="{% url 'registrar_hora' %}">
+                    <button class="btn btn-primary" type="button">IR AL FORMULARIO DE INSCRIPCIÓN</button>
+                </a>
+            </div>
+        </div>
+    </div> 
+</div>
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

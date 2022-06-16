@@ -1,0 +1,48 @@
+<div class="alert alert-primary" role="alert">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="row" colspan="4" class="text-center"><h4 class="text-primary"><i class="fas fa-fw fa-cart-shopping"></i> CARRITO</h4></th>
+    </tr>
+    <tr>
+      <th scope="col">NOMBRE</th>
+      <th scope="col">PRECIO</th>
+      <th scope="col">CANTIDAD</th>
+      <th scope="col">SUB-TOTAL</th>
+      <th scope="col">ACCIONES</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% if request.session.carrito.items %}
+    {% for key, value in request.session.carrito.items %}
+      <tr>
+        <td>{{value.nombre}}</td>
+        <td>${{value.precio}}</td>
+        <td class="text-center">{{ value.cantidad }}</td>
+        <td>${{value.acumulado}}</td>  
+        <td>
+          <a href="{% url 'Add' value.producto_id %}" class="btn btn btn-outline-success btn-sm"><i class="fas fa-fw fa-plus"></i></a>
+          <a href="{% url 'Sub' value.producto_id %}" class="btn btn btn-outline-danger btn-sm"><i class="fas fa-fw fa-minus"></i></a>
+        </td>
+      </tr>
+    {% endfor %}
+    <tr><th scope="row" colspan="3"><h4>Total a Pagar:</h4></th><td colspan="2"><h4>${{ total_carrito }}</h4></td></tr>
+    {% else %}
+    <tr><td colspan="5"><div class="alert alert-danger text-center"> Sin Productos Agregados </div></td></tr>
+  {% endif %}
+  </tbody>
+</table>
+</div>
+{% if request.session.carrito.items %}
+  <div class="row text-center">
+      <div class="col-6"><a href="{% url 'CLS' %}" class="btn btn-danger"><i class="fas fa-fw fa-eraser"></i>  Limpiar</a></div>
+      <div class="col-6"><a href="{% url 'Checkout' %}" class="btn btn-success"><i class="fas fa-fw fa-dollar-sign"></i>  Pagar</a></div>
+  </div>
+{% endif %}
+
+
+
+
+
+

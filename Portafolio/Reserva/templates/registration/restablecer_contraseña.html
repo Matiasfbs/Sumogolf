@@ -1,0 +1,12 @@
+<h3> Restablecer Contraseña </h3>
+
+<p>¿Olvidaste tu contraseña? Ingrese su dirección de correo electrónico a continuación y 
+le enviaremos instrucciones por correo electrónico para configurar una nueva.   jasbfkjaebfkjbsdkjcbsdkjfbvdwlkjbfkjdsbvjwdb</p>
+
+<form method="post">
+    
+    {% csrf_token %}
+    {{form}}
+    <input type="Submit" name="Enviar correo electrónico">
+
+</form>

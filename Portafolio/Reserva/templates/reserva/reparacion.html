@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <div class="card shadow-lg p-2 mb-5 bg-body rounded">
+                <div class="card-body">
+                    <h2>Registro reparación</h2>
+                    <hr>
+                    <form action="" method="post">
+
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <br>
+                        <div class="d-flex justify-content-end">
+                            <input type="reset" value="Cancelar" class="btn btn-secondary">
+                            &nbsp;
+                            <input type="submit" value="Guardar" class="btn btn-primary">
+                        </div>
+                    </form>
+                    {{mensaje}}
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+</div>
+
+
+
+{% endblock contenido %}

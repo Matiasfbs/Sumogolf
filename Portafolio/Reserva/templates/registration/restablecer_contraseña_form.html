@@ -1,0 +1,14 @@
+ 
+ <h3>Ingrese su nueva Contraseña</h3>
+
+    <p> Tu clave a sido actualizada. Puedes volver a iniciar sesión</p>
+            
+    <form method="post">
+    
+        {%  csrf_token  %}
+        {{form}}
+        <input type="Submit" name="Actualizar Contraseña">
+
+        
+    
+    </form>

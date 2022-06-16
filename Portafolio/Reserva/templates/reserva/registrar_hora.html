@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+
+
+{% block contenido %}
+{% load crispy_forms_tags %}
+
+
+<br>
+<br>
+
+<div class="row">
+
+
+    <div class="col-12 col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h7>
+                    Coordinación de Curso de Golf
+                    <br>
+                    <br>
+
+                    Recibida su inscripción nos pondremos en contacto con Ud. para informar la fecha de inicio del
+                    curso que se realizan los Jueves y Viernes entre las 10:00 hasta las 11:30, cabe destacar que el
+                    interesado
+                    debe escoger que día se acomoda a su situación. Luego, se le enviará un correo confirmando su
+                    inscripción.
+                    <br>
+                    Valor curso: $30.000
+                </h7>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+
+        <div class="card">
+            <div class="card-body">
+                <h2>Ingrese sus datos para reservar su clase</h2>
+
+                <form action="" class="formulario_reserva" method="post">
+
+                    {% csrf_token %}
+
+                    {{ form | crispy }}
+                    <br>
+
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-secondary">
+                            <a href="{% url 'clases_golf'  %}" style="text-decoration: none; color:aliceblue;">Cancelar</a>
+                        </button>
+
+
+                        &nbsp;
+                        &nbsp;
+                        <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+
+
+
+                    </div>
+
+                </form>
+                {{mensaje}}
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}

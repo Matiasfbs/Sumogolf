@@ -1,0 +1,118 @@
+{% if request.session.carrito.items %}
+<div class="container">
+    <div class="card mt-3">
+        <div class="card-header">
+            <div class="col-md-12 text-center text-primary"><h1>CHECKOUT CARRITO DE COMPRAS</h1></div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="#">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <small id="helpId" class="text-muted">NOMBRES</small>
+                                        <input required autofocus type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <small id="helpId" class="text-muted">APELLIDOS</small>
+                                        <input required type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <small id="helpId" class="text-muted">CELULAR</small>
+                                        <input required type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <small id="helpId" class="text-muted">EMAIL</small>
+                                        <input required type="email" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <small id="helpId" class="text-muted">DIRECCION COMPLETA</small>
+                                        <input required type="text" class="form-control form-control-sm">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <small id="helpId" class="text-muted">REGION</small>
+                                        <select required class="form-control form-select" id="regiones"></select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <small id="helpId" class="text-muted">COMUNA</small>
+                                        <select required class="form-control form-select" id="comunas"></select>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <small id="helpId" class="text-muted">OBSERVACIONES</small>
+                                        <textarea class="form-control form-control-sm" rows="5"></textarea>
+                                    </div>
+                                    <div class="form-group col-md-12 mt-3">
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#modalPago" class="btn btn-primary w-100"><i class="fas fa-fw fa-cash-register fa-2x"></i> IR A PLATAFORMA DE PAGO</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                <div class="col-md-5">
+                    <h4 class="text-center">DETALLE DE LA ORDEN <i class="fas fa-fw fa-cart-shopping"></i>  </h4>
+                    <table class="table table-hover table-bordered table-striped"> 
+                        <thead>
+                            <tr>
+                                <th>PRODUCTO</th>
+                                <th>PRECIO</th>
+                                <th>CANTIDAD</th>
+                                <th>SUBTOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, item in request.session.carrito.items %}
+                            <tr>
+                                <td>{{ item.nombre }}</td>
+                                <td class="text-end">${{ item.precio }}</td>
+                                <td class="text-center">{{ item.cantidad }}</td>
+                                <td class="text-end">${{ item.acumulado }}</td>
+                            </tr>
+                            {% endfor %}
+                            <tr class="text-center">
+                                <td colspan="5" class="text-primary"><h4><i class="fas fa-fw fa-dollar-sign"></i> TOTAL A PAGAR</h4></td>
+                            </tr>
+                            <tr class="text-center">
+                                <td colspan="5" class="text-success"><h2>${{ total_carrito }}</h2></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="/" class="btn btn-outline-success w-100">VOLVER AL CARRITO</a>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="alert alert-danger mt-3">
+    <p class="display-4 text-center">DEBES AGREGAR PRODUCTOS AL CARRITO!</p>
+</div>
+<a href="/" class="btn btn-primary btn-lg">IR AL CARRITO DE COMPRAS</a>
+{% endif %}
+
+
+
+<div class="modal fade" id="modalPago" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">PROCESO DEL PAGO</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Acá se debe llamar a la pasarela de pago (webpay, mercadopago, flow, etc., enviando los parámetros que vienen de la página checkout)
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CERRAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
